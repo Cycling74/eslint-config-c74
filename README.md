@@ -16,7 +16,7 @@ $ yarn add --dev eslint Cycling74/eslint-config-c74
 ## Using it
 In order to use the defined rules from within your project's contexts make sure you are extending the config:
 
-```json
+```js
 {
 	"extends": "c74",
 	"rules": {
