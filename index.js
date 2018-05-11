@@ -142,7 +142,7 @@ module.exports = {
 		"no-undefined": OFF,
 		"no-unused-vars": [ERROR, {
 			"vars": "local",
-			"args": "after-used"
+			"args": "none"
 		}],
 		"no-use-before-define": ERROR,
 
@@ -257,7 +257,11 @@ module.exports = {
 		"sort-keys": OFF,
 		"sort-vars": OFF,
 		"space-before-blocks": ERROR,
-		"space-before-function-paren": [ERROR, "never"],
+		"space-before-function-paren": [ERROR, {
+			"anonymous": "always",
+			"named": "never",
+			"asyncArrow": "always"
+		}],
 		"space-in-parens": OFF,
 		"space-infix-ops": ERROR,
 		"space-unary-ops": OFF,
