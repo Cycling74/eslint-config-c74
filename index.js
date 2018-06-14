@@ -187,7 +187,7 @@ module.exports = {
 		"id-blacklist": OFF,
 		"id-length": OFF,
 		"id-match": OFF,
-		"indent": [ERROR, "tab"],
+		"indent": [ERROR, "tab", { SwitchCase: 1 }],
 		"jsx-quotes": OFF,
 		"key-spacing": [ERROR, {
 			"beforeColon": false,
