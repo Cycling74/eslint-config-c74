@@ -5,7 +5,8 @@
 			"name": "Florian Demmer",
 			"email": "florian@cycling74.com"
 		}
-	],
+  ],
+  "description": "Packaged configuration of ESLint Rules according to Cycling '74 guide",
 	"devDependencies": {
 		"eslint": ">=4.19.1",
 		"mocha": "^5.1.1"
@@ -15,9 +16,8 @@
 	"peerDependencies": {
 		"eslint": ">=4.19.1"
 	},
-	"private": true,
-  "repository": "Cycling74/eslint-config-c74",
-  "readme": "README.md",
+	"repository": "Cycling74/eslint-config-c74",
+	"readme": "README.md",
 	"scripts": {
 		"lint": "eslint .",
 		"test": "mocha"
