@@ -2,7 +2,6 @@
 Cycling '74 Recommended sharebale ESLint Configuration for simple inclusion in your project.
 
 ## Installation
-*Note* This Repo is private and therefore only accessible for people with C74 Github access as of now.
 
 ```sh
 # npm
