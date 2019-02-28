@@ -8,6 +8,7 @@
 	],
 	"description": "Packaged configuration of ESLint Rules according to Cycling '74 guide",
 	"devDependencies": {
+		"@types/eslint": "^4.16.6",
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^11.9.5",
 		"eslint": "^5.14.1",
@@ -15,7 +16,7 @@
 		"ts-node": "^8.0.2",
 		"typescript": "^3.3.3333"
 	},
-	"main": "lib/index.js",
+	"main": "index.js",
 	"name": "eslint-config-c74",
 	"peerDependencies": {
 		"eslint": "^5.14.1",
@@ -25,13 +26,15 @@
 	"readme": "README.md",
 	"scripts": {
 		"build": "tsc -b",
-		"lint": "eslint ./src ./test --ext .ts",
-		"test": "mocha --forbid-only \"test/**/*.ts\""
+		"lint": "npm run lint:ts && npm run lint:js",
+		"lint:ts": "eslint ./src ./test --config ./.eslintrc.js --ext .ts --no-eslintrc",
+		"lint:js": "eslint ./index.js --config ./.eslintrc_js.js ./typescript.js --no-eslintrc",
+		"test": "mocha --forbid-only \"test/*.ts\""
 	},
 	"version": "1.0.0",
 	"dependencies": {
-		"@types/eslint": "^4.16.6",
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
-		"@typescript-eslint/parser": "^1.4.2"
+		"@typescript-eslint/parser": "^1.4.2",
+		"babel-eslint": "^10.0.1"
 	}
 }

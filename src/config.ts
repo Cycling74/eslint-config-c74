@@ -3,30 +3,16 @@ import { Linter } from "eslint";
 const OFF = 0;
 const ERROR = 2;
 
-export const extendsConfig = ["plugin:@typescript-eslint/recommended"];
-export const parser = "@typescript-eslint/parser";
-export const plugins = ["@typescript-eslint"];
+export const extendsConfig = ["eslint:recommended"];
+export const parser = "babel-eslint";
+export const plugins = [];
 export const parserOptions: Linter.ParserOptions = {
 	ecmaVersion: 2017,
 	sourceType: "module"
 };
 
 export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions } = {
-	// Typescript Plugin Rules
-	// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
 
-	"camelcase": OFF,
-	"@typescript-eslint/camelcase": [ERROR, { "properties": "never" }],
-
-	"indent": OFF,
-	"@typescript-eslint/indent": [ERROR, "tab", { SwitchCase: 1 }],
-
-	"no-unused-vars": OFF,
-	"@typescript-eslint/no-unused-vars": [ERROR, {
-		"vars": "local",
-		"args": "none",
-		"ignoreRestSiblings": false
-	}],
 
 	// The following rules appear as listed on the ESLint Rules Documentation website.
 	// The we extend the eslint:recommended ruleset, however for reference
@@ -325,4 +311,30 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 	"symbol-description": OFF,
 	"template-curly-spacing": OFF,
 	"yield-star-spacing": OFF
+};
+
+export const typescriptExtendsConfig = ["plugin:@typescript-eslint/recommended"];
+export const typescriptParser = "@typescript-eslint/parser";
+export const typescriptParserOptions: Linter.ParserOptions = {
+	ecmaVersion: 2017,
+	sourceType: "module"
+};
+export const typescriptPlugins = ["@typescript-eslint"];
+export const typescriptRules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions } = {
+	...rules,
+	// Typescript Plugin Rules
+	// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+
+	"camelcase": OFF,
+	"@typescript-eslint/camelcase": [ERROR, { "properties": "never" }],
+
+	"indent": OFF,
+	"@typescript-eslint/indent": [ERROR, "tab", { SwitchCase: 1 }],
+
+	"no-unused-vars": OFF,
+	"@typescript-eslint/no-unused-vars": [ERROR, {
+		"vars": "local",
+		"args": "none",
+		"ignoreRestSiblings": false
+	}]
 };

@@ -1,4 +1,4 @@
-const config = require("./lib/index.js");
+const { tsConfig } = require("./lib/index.js");
 
 module.exports = {
 
@@ -13,5 +13,5 @@ module.exports = {
 		"it": true,
 	},
 
-	...config
+	...tsConfig
 };
