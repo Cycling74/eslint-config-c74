@@ -326,7 +326,7 @@ export const typescriptRules: { [name: string]: Linter.RuleLevel | Linter.RuleLe
 	// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
 
 	"camelcase": OFF,
-	"@typescript-eslint/camelcase": [ERROR, { "properties": "never" }],
+	"@typescript-eslint/camelcase": OFF,
 
 	"indent": OFF,
 	"@typescript-eslint/indent": [ERROR, "tab", { SwitchCase: 1 }],
@@ -336,5 +336,7 @@ export const typescriptRules: { [name: string]: Linter.RuleLevel | Linter.RuleLe
 		"vars": "local",
 		"args": "none",
 		"ignoreRestSiblings": false
-	}]
+	}],
+
+	"@typescript-eslint/explicit-member-accessibility": OFF
 };
