@@ -1,4 +1,5 @@
 # eslint-config-c74
+[![Build Status](https://travis-ci.org/Cycling74/eslint-config-c74.svg?branch=master)](https://travis-ci.org/Cycling74/eslint-config-c74)
 Cycling '74 Recommended sharebale ESLint Configuration for simple inclusion in your project.
 
 ## Installation
