@@ -1,4 +1,4 @@
-const config = require("./index.js");
+const config = require("./lib/index.js");
 
 module.exports = {
 
@@ -13,13 +13,5 @@ module.exports = {
 		"it": true,
 	},
 
-	"extends": "eslint:recommended",
-
-	// Allow parsing of modern Node Code
-	parserOptions: {
-		ecmaVersion: 2017,
-		sourceType: "module"
-	},
-
-	rules: config.rules
+	...config
 };
