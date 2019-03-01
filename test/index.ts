@@ -4,17 +4,30 @@ import { CLIEngine } from "eslint";
 
 import {
 	extendsConfig,
+	envConfig,
 	parser,
 	plugins,
 	parserOptions,
 	rules,
 
 	typescriptExtendsConfig,
+	typescriptEnvConfig,
 	typescriptParser,
 	typescriptPlugins,
 	typescriptParserOptions,
 	typescriptRules
 } from "../src/config";
+
+const objectKeysToArray = (env: { [name: string]: boolean }): string[] => {
+
+	const keys: string[] = Object.keys(env);
+	const result: string[] = [];
+
+	for (let i = 0, il = keys.length; i < il; i++) {
+		if (env[keys[i]]) result.push(keys[i]);
+	}
+	return result;
+};
 
 
 describe("ESLint JavaScript", () => {
@@ -23,7 +36,7 @@ describe("ESLint JavaScript", () => {
 		baseConfig: {
 			"extends": extendsConfig
 		},
-		envs: ["node"],
+		envs: objectKeysToArray(envConfig),
 		extensions: [".js"],
 		parser,
 		parserOptions,
@@ -52,7 +65,7 @@ describe("ESLint TypeScript", () => {
 		baseConfig: {
 			"extends": typescriptExtendsConfig
 		},
-		envs: ["node", "mocha"],
+		envs: objectKeysToArray(typescriptEnvConfig),
 		extensions: [".ts"],
 		parser: typescriptParser,
 		parserOptions: typescriptParserOptions,

@@ -28,7 +28,7 @@
 		"build": "tsc -b",
 		"lint": "npm run lint:ts && npm run lint:js",
 		"lint:ts": "eslint ./src ./test --config ./.eslintrc.js --ext .ts --no-eslintrc",
-		"lint:js": "eslint ./index.js --config ./.eslintrc_js.js ./typescript.js --no-eslintrc",
+		"lint:js": "eslint ./index.js ./ts-config.js --config ./.eslintrc_js.js --no-eslintrc",
 		"prepublishOnly": "npm test && npm run lint",
 		"prepare": "npm run build",
 		"test": "mocha --forbid-only \"test/*.ts\""

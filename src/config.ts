@@ -4,6 +4,11 @@ const OFF = 0;
 const ERROR = 2;
 
 export const extendsConfig = ["eslint:recommended"];
+export const envConfig = {
+	mocha: true,
+	node: true,
+	es6: true
+};
 export const parser = "babel-eslint";
 export const plugins = [];
 export const parserOptions: Linter.ParserOptions = {
@@ -314,6 +319,11 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 };
 
 export const typescriptExtendsConfig = ["plugin:@typescript-eslint/recommended"];
+export const typescriptEnvConfig = {
+	mocha: true,
+	node: true,
+	es6: true
+};
 export const typescriptParser = "@typescript-eslint/parser";
 export const typescriptParserOptions: Linter.ParserOptions = {
 	ecmaVersion: 2017,
