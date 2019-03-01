@@ -147,10 +147,10 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 	"no-undef": ERROR,
 	"no-undef-init": OFF,
 	"no-undefined": OFF,
-	// "no-unused-vars": [ERROR, {
-	// 	"vars": "local",
-	// 	"args": "none"
-	// }],
+	"no-unused-vars": [ERROR, {
+		"vars": "local",
+		"args": "none"
+	}],
 	"no-use-before-define": ERROR,
 
 	// Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
@@ -174,9 +174,9 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 	"array-element-newline": OFF,
 	"block-spacing": OFF,
 	"brace-style": OFF,
-	// "camelcase": [OFF, {
-	// 	"properties": "never"
-	// }],
+	"camelcase": [OFF, {
+		"properties": "never"
+	}],
 	"capitalized-comments": OFF,
 	"comma-dangle": [ERROR, "never"],
 	"comma-spacing": [ERROR, {
@@ -194,7 +194,7 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 	"id-blacklist": OFF,
 	"id-length": OFF,
 	"id-match": OFF,
-	// "indent": [ERROR, "tab", { SwitchCase: 1 }],
+	"indent": [ERROR, "tab", { SwitchCase: 1 }],
 	"jsx-quotes": OFF,
 	"key-spacing": [ERROR, {
 		"beforeColon": false,
