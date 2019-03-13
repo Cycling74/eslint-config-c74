@@ -1,24 +1,23 @@
 import { Linter } from "eslint";
 
-const OFF = 0;
-const ERROR = 2;
+const OFF: Linter.RuleLevel = 0;
+const ERROR: Linter.RuleLevel = 2;
 
 export const extendsConfig = ["eslint:recommended"];
 export const envConfig = {
+	es6: true,
 	mocha: true,
-	node: true,
-	es6: true
+	node: true
 };
-export const parser = "babel-eslint";
-export const plugins = [];
+
 export const parserOptions: Linter.ParserOptions = {
-	ecmaVersion: 2017,
+	ecmaVersion: 2018,
 	sourceType: "module"
 };
 
+export const plugins: string[] = [];
+
 export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions } = {
-
-
 	// The following rules appear as listed on the ESLint Rules Documentation website.
 	// The we extend the eslint:recommended ruleset, however for reference
 	// and easier customisation we list all rules here and override only if necessary (uncommented)
@@ -316,37 +315,5 @@ export const rules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOpti
 	"symbol-description": OFF,
 	"template-curly-spacing": OFF,
 	"yield-star-spacing": OFF
-};
 
-export const typescriptExtendsConfig = ["plugin:@typescript-eslint/recommended"];
-export const typescriptEnvConfig = {
-	mocha: true,
-	node: true,
-	es6: true
-};
-export const typescriptParser = "@typescript-eslint/parser";
-export const typescriptParserOptions: Linter.ParserOptions = {
-	ecmaVersion: 2017,
-	sourceType: "module"
-};
-export const typescriptPlugins = ["@typescript-eslint"];
-export const typescriptRules: { [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions } = {
-	...rules,
-	// Typescript Plugin Rules
-	// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
-
-	"camelcase": OFF,
-	"@typescript-eslint/camelcase": OFF,
-
-	"indent": OFF,
-	"@typescript-eslint/indent": [ERROR, "tab", { SwitchCase: 1 }],
-
-	"no-unused-vars": OFF,
-	"@typescript-eslint/no-unused-vars": [ERROR, {
-		"vars": "local",
-		"args": "none",
-		"ignoreRestSiblings": false
-	}],
-
-	"@typescript-eslint/explicit-member-accessibility": OFF
 };

@@ -6,7 +6,6 @@
 			"email": "florian@cycling74.com"
 		}
 	],
-	"description": "Packaged configuration of ESLint Rules according to Cycling '74 guide",
 	"devDependencies": {
 		"@types/eslint": "^4.16.6",
 		"@types/mocha": "^5.2.6",
@@ -16,32 +15,18 @@
 		"ts-node": "^8.0.2",
 		"typescript": "^3.3.3333"
 	},
-	"main": "index.js",
-	"name": "eslint-config-c74",
-	"peerDependencies": {
-		"eslint": "^5.14.1",
-		"typescript": "^3.3.3333"
-	},
+	"license": "MIT",
+	"name": "eslint-config-c74-repo",
 	"repository": "Cycling74/eslint-config-c74",
 	"readme": "README.md",
 	"scripts": {
-		"build": "tsc -b",
-		"lint": "npm run lint:ts && npm run lint:js",
-		"lint:ts": "eslint ./src ./test --config ./.eslintrc.js --ext .ts --no-eslintrc",
-		"lint:js": "eslint ./index.js ./ts-config.js --config ./.eslintrc_js.js --no-eslintrc",
-		"prepublishOnly": "npm test && npm run lint",
-		"prepare": "npm run build",
-		"test": "mocha --forbid-only \"test/*.ts\""
+		"lint": "eslint . --config ./.eslintrc.js --ext .ts",
+		"postinstall": "yarn workspaces run prepare",
+		"test": "mocha --opts ./test/mocha.opts"
 	},
 	"version": "1.0.0",
-	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^1.4.2",
-		"@typescript-eslint/parser": "^1.4.2",
-		"babel-eslint": "^10.0.1"
-	},
-	"files": [
-		"lib/**/*",
-		"index.js",
-		"ts-config.js"
+	"private": true,
+	"workspaces": [
+		"packages/*"
 	]
 }
