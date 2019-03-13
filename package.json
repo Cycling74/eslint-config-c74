@@ -22,6 +22,8 @@
 	"scripts": {
 		"lint": "eslint . --config ./.eslintrc.js --ext .ts",
 		"postinstall": "yarn workspaces run prepare",
+		"preversion": "yarn run test",
+		"version": "node ./scripts/version.js",
 		"test": "mocha --opts ./test/mocha.opts"
 	},
 	"version": "1.0.0",
