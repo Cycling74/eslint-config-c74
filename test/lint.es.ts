@@ -13,7 +13,8 @@ describe("ESLint JavaScript", () => {
 	});
 
 	const report: CLIEngine.LintReport = jsLinter.executeOnFiles([
-		join(__dirname, "..", ".eslintrc.js")
+		join(__dirname, "..", ".eslintrc.js"),
+		join(__dirname, "..", "scripts")
 	]);
 
 	it("lints JS without errors", () => {
