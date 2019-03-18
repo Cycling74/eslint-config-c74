@@ -1,7 +1,7 @@
 {
 	"name": "eslint-config-c74",
 	"description": "Packaged configuration of ESLint Rules according to Cycling '74 guide",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"author": "Cycling '74",
 	"contributors": [
 		{
@@ -18,7 +18,7 @@
 	"devDependencies": {},
 	"dependencies": {
 		"babel-eslint": "^10.0.1",
-		"eslint-config-c74-base": "1.0.0"
+		"eslint-config-c74-base": "2.0.0"
 	},
 	"peerDependencies": {
 		"eslint": "^5.14.1"
