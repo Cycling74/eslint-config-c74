@@ -1,7 +1,7 @@
 {
 	"name": "eslint-config-c74-base",
 	"description": "Base configuration of ESLint Rules according to Cycling '74 guide",
-	"version": "2.0.0",
+	"version": "1.0.0",
 	"author": "Cycling '74",
 	"contributors": [
 		{

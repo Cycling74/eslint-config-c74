@@ -1,7 +1,7 @@
 {
 	"name": "eslint-config-c74-ts",
 	"description": "Packaged configuration of TypeScript ESLint Rules according to Cycling '74 guide",
-	"version": "2.0.0",
+	"version": "1.0.0",
 	"author": "Cycling '74",
 	"contributors": [
 		{
@@ -19,7 +19,7 @@
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
 		"@typescript-eslint/parser": "^1.4.2",
-		"eslint-config-c74-base": "2.0.0"
+		"eslint-config-c74-base": "1.0.0"
 	},
 	"peerDependencies": {
 		"eslint": "^5.14.1",
