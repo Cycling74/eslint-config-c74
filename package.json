@@ -23,6 +23,7 @@
 		"lint": "eslint . --config ./.eslintrc.js --ext .ts",
 		"postinstall": "yarn workspaces run prepare",
 		"preversion": "yarn run test",
+		"publish": "node ./scripts/publish.js",
 		"version": "node ./scripts/version.js",
 		"test": "yarn run lint && mocha --opts ./test/mocha.opts"
 	},
