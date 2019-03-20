@@ -26,7 +26,7 @@ $> yarn run test
 $> npm login
 
 # set the new version
-$> yarn run version <version>
+$> yarn version <version>
 
 # then publish
 $> yarn run publish
