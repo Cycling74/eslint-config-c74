@@ -1,0 +1,33 @@
+{
+	"name": "eslint-config-c74-ts",
+	"description": "Packaged configuration of TypeScript ESLint Rules according to Cycling '74 guide",
+	"version": "1.0.0",
+	"author": "Cycling '74",
+	"contributors": [
+		{
+			"name": "Florian Demmer",
+			"email": "florian@cycling74.com"
+		}
+	],
+	"license": "MIT",
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "tsc -b",
+		"prepack": "yarn run build"
+	},
+	"devDependencies": {},
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^1.4.2",
+		"@typescript-eslint/parser": "^1.4.2",
+		"eslint-config-c74-base": "1.0.0"
+	},
+	"peerDependencies": {
+		"eslint": "^5.14.1",
+		"typescript": "^3.3.3333"
+	},
+	"readme": "README.md",
+	"repository": "Cycling74/eslint-config-c74",
+	"files": [
+		"lib/**/*"
+	]
+}

@@ -1,0 +1,4 @@
+node_modules/*
+packages/eslint-config-c74/lib/*
+packages/eslint-config-c74-base/lib/*
+packages/eslint-config-c74-ts/lib/*
