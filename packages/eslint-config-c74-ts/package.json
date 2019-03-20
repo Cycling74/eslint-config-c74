@@ -13,7 +13,7 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "tsc -b",
-		"prepare": "yarn run build"
+		"prepack": "yarn run build"
 	},
 	"devDependencies": {},
 	"dependencies": {

@@ -21,7 +21,7 @@
 	"readme": "README.md",
 	"scripts": {
 		"lint": "eslint . --config ./.eslintrc.js --ext .ts",
-		"postinstall": "yarn workspaces run prepare",
+		"postinstall": "yarn workspaces run prepack",
 		"preversion": "yarn run test",
 		"publish": "node ./scripts/publish.js",
 		"version": "node ./scripts/version.js",
