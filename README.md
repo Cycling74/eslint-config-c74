@@ -19,6 +19,19 @@ $> yarn install
 $> yarn run test
 ```
 
+### Publishing
+
+```sh
+# login using the interactive npm login cmd
+$> npm login
+
+# set the new version
+$> yarn run version <version>
+
+# then publish
+$> yarn run publish
+```
+
 ## License
 
 [MIT](LICENSE)
