@@ -1,31 +1,16 @@
-const { spawn } = require("child_process");
+const { execSync } = require("child_process");
 const { join } = require("path");
 
-const REPO_DIR = join(__dirname, "..");
+const REPO_ROOT = join(__dirname, "..");
+module.exports.REPO_ROOT = REPO_ROOT;
 
-module.exports.runAsync = (cmd, args = [], options = {}) => {
-	return new Promise((resolve, reject) => {
-		const proc = spawn(cmd, args, Object.assign({}, {
-			cwd: REPO_DIR,
-			stdio: "inherit"
-		}, options));
-
-		proc.on("error", reject);
-		proc.on("close", code => {
-
-			if (code === 0) return void resolve();
-			return void reject(new Error(`${cmd} ${args.join(" ")} exited with code ${code}`));
-		});
-	});
+const getWorkSpaceInfo = () => {
+	// Gather Workspace info
+	let info = execSync("yarn workspaces info", { cwd: REPO_ROOT }).toString();
+	info = info.slice(info.indexOf("{"));
+	info = info.slice(0, info.lastIndexOf("}") + 1);
+	info = JSON.parse(info.trim());
+	return info;
 };
 
-module.exports.REPO_DIR = REPO_DIR;
-
-module.exports.executeMain = fct => {
-	fct()
-		.then(() => { })
-		.catch((err) => {
-			console.log(err);
-			process.exit(1);
-		});
-};
+module.exports.getWorkSpaceInfo = getWorkSpaceInfo;

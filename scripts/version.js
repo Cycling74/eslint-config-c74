@@ -1,16 +1,12 @@
+#!/usr/bin/env node
 const { join } = require("path");
 const { execSync } = require("child_process");
 const { readFileSync, writeFileSync } = require("fs");
 
-const REPO_ROOT = join(__dirname, "..");
-const version = process.env.npm_package_version;
-console.log(version);
+const { getWorkSpaceInfo, REPO_ROOT } = require("./helpers");
 
-// Gather Workspace info
-let info = execSync("yarn workspaces info", { cwd: REPO_ROOT }).toString();
-info = info.slice(info.indexOf("{"));
-info = info.slice(0, info.lastIndexOf("}") + 1);
-info = JSON.parse(info.trim());
+const version = process.env.npm_package_version;
+const info = getWorkSpaceInfo();
 
 // Update workspace package info
 const workspacePackages = Object.keys(info);

@@ -1,39 +1,24 @@
 #!/usr/bin/env node
 const { join } = require("path");
 const { execSync } = require("child_process");
-const { executeMain, REPO_DIR, runAsync } = require("./helpers");
+const { getWorkSpaceInfo, REPO_ROOT } = require("./helpers");
 
-executeMain(async () => {
+const PACKAGES_TO_PUBLISH = [
+	"eslint-config-c74-base",
+	"eslint-config-c74",
+	"eslint-config-c74-ts"
+];
 
+const publishPackage = (name, pkgInfo) => {
+	console.log(`publishing package '${name}'`);
+	execSync("yarn publish --non-interactive", { cwd: join(REPO_ROOT, pkgInfo.location) });
+};
 
-	const changes = execSync("git status -s").toString();
-	if (changes && changes.length) {
-		console.error("Git Directory not clean. Please make sure you are working from a clean HEAD");
-		process.exit(1);
-		return;
-	}
+const info = getWorkSpaceInfo();
+const workspacePackages = Object.keys(info);
+for (let i = 0, il = workspacePackages.length; i < il; i++) {
+	const pkg = workspacePackages[i];
+	const pkgInfo = info[pkg];
 
-	await runAsync("yarn", ["run", "test"]);
-	await runAsync("yarn", ["run", "version"]);
-
-	const packageInfo = require("../package.json");
-
-	await runAsync("git", [
-		"add",
-		"./package.json",
-		"./packages/eslint-config-c74/package.json",
-		"./packages/eslint-config-c74-base/package.json",
-		"./packages/eslint-config-c74-ts/package.json",
-	]);
-
-	await runAsync("git", [
-		"commit",
-		"-m",
-		`"Set Version v${packageInfo.version}"`
-	]);
-
-	await runAsync("git", ["tag", `v${packageInfo.version}`]);
-	await runAsync("yarn", ["publish", join(REPO_DIR, "packages", "eslint-config-c74"), "--new-version", packageInfo.version]);
-	await runAsync("yarn", ["publish", join(REPO_DIR, "packages", "eslint-config-c74-base"), "--new-version", packageInfo.version]);
-	await runAsync("yarn", ["publish", join(REPO_DIR, "packages", "eslint-config-c74-ts"), "--new-version", packageInfo.version]);
-});
+	if (PACKAGES_TO_PUBLISH.includes(pkg)) publishPackage(pkg, pkgInfo);
+}
