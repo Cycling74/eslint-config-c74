@@ -11,12 +11,12 @@ Cycling '74 Project for recommended, sharebale ESLint Configuration for simple i
 ### Install Dependencies and set up Monorepo
 
 ```sh
-$> yarn install
+$> npm ci
 ```
 
 ### Testing
 ```sh
-$> yarn run test
+$> npm run test
 ```
 
 ### Publishing
@@ -26,10 +26,10 @@ $> yarn run test
 $> npm login
 
 # set the new version
-$> yarn version <version>
+$> npm version <version>
 
 # then publish
-$> yarn run publish
+$> npm run publish
 ```
 
 ## License

@@ -1,41 +1,49 @@
 import assert from "assert";
 import { join } from "path";
-import { CLIEngine } from "eslint";
+import { ESLint } from "eslint";
 import { EOL } from "os";
 
-describe("ESLint JavaScript", () => {
+describe("ESLint TypeScript", () => {
 
-	let linter: CLIEngine;
-	let report: CLIEngine.LintReport;
+	let linter: ESLint;
+	let results: ESLint.LintResult[];
+	let errorCount = 0;
+	let warningCount = 0;
 
-	before(() => {
+	before(async () => {
 
-		linter = new CLIEngine({
+		linter = new ESLint({
 			baseConfig: {
-				"extends": "c74"
+				"extends": "c74",
+				parserOptions: {
+					requireConfigFile: false
+				}
 			},
 			ignore: false,
 			useEslintrc: false
 		});
 
-		report = linter.executeOnFiles([
+		results = await linter.lintFiles([
 			join(__dirname, "..", ".eslintrc.js"),
 			join(__dirname, "..", "scripts")
 		]);
+
+		errorCount = results.reduce((sum, result) => sum + result.errorCount + result.fatalErrorCount, 0);
+		warningCount = results.reduce((sum, result) => sum + result.warningCount, 0);
 	});
 
-	it("lints JS without errors", () => {
-		assert.strictEqual(report.errorCount, 0);
+	it("lints TS without errors", () => {
+		assert.strictEqual(errorCount, 0);
 	});
 
-	it("lints JS without warnings", () => {
-		assert.strictEqual(report.warningCount, 0);
+	it("lints TS without warnings", () => {
+		assert.strictEqual(warningCount, 0);
 	});
 
 	after(() => {
-		if (report.errorCount || report.warningCount) {
+		if (errorCount || warningCount) {
 			console.log(`${EOL}Linting report:${EOL}`);
-			console.log(linter.getFormatter()(report.results));
+			console.log(results.map(r => r.messages.map(m => JSON.stringify(m, null, 2)).join("\n")));
 		}
 	});
 });

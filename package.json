@@ -7,13 +7,14 @@
 		}
 	],
 	"devDependencies": {
-		"@types/eslint": "^4.16.6",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^11.9.5",
-		"eslint": "^5.14.1",
-		"mocha": "^5.1.1",
-		"ts-node": "^8.0.2",
-		"typescript": "^3.3.3333"
+		"@types/eslint": "^8.44.2",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "^20.6.0",
+		"eslint": "^8.49.0",
+		"mocha": "^10.2.0",
+		"ts-node": "^10.9.1",
+		"tslib": "^2.6.2",
+		"typescript": "^5.2.2"
 	},
 	"license": "MIT",
 	"name": "eslint-config-c74-repo",
@@ -21,11 +22,11 @@
 	"readme": "README.md",
 	"scripts": {
 		"lint": "eslint . --config ./.eslintrc.js --ext .ts",
-		"postinstall": "yarn workspaces run prepack",
-		"preversion": "yarn run test",
+		"postinstall": "npm run prepack --workspaces",
+		"preversion": "npm run test",
 		"publish": "node ./scripts/publish.js",
 		"version": "node ./scripts/version.js",
-		"test": "yarn run lint && mocha --opts ./test/mocha.opts"
+		"test": "npm run lint && mocha --config ./test/.mocharc.json"
 	},
 	"version": "2.0.0",
 	"private": true,

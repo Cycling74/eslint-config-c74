@@ -13,12 +13,12 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "tsc -b",
-		"prepack": "yarn run build"
+		"prepack": "npm run build"
 	},
 	"devDependencies": {},
 	"dependencies": {},
 	"peerDependencies": {
-		"eslint": "^5.14.1"
+		"eslint": "^8"
 	},
 	"readme": "README.md",
 	"repository": "Cycling74/eslint-config-c74",

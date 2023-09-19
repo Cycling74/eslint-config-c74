@@ -13,17 +13,17 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "tsc -b",
-		"prepack": "yarn run build"
+		"prepack": "npm run build"
 	},
 	"devDependencies": {},
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^1.4.2",
-		"@typescript-eslint/parser": "^1.4.2",
+		"@typescript-eslint/eslint-plugin": "^6.7.2",
+		"@typescript-eslint/parser": "^6.7.2",
 		"eslint-config-c74-base": "2.0.0"
 	},
 	"peerDependencies": {
-		"eslint": "^5.14.1",
-		"typescript": "^3.3.3333"
+		"eslint": "^8",
+		"typescript": "^5"
 	},
 	"readme": "README.md",
 	"repository": "Cycling74/eslint-config-c74",

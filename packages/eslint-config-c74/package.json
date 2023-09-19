@@ -17,11 +17,11 @@
 	},
 	"devDependencies": {},
 	"dependencies": {
-		"babel-eslint": "^10.0.1",
+		"@babel/eslint-parser": "^7.22.15",
 		"eslint-config-c74-base": "2.0.0"
 	},
 	"peerDependencies": {
-		"eslint": "^5.14.1"
+		"eslint": "^8"
 	},
 	"readme": "README.md",
 	"repository": "Cycling74/eslint-config-c74",

@@ -12,7 +12,7 @@ interface LinterConfig {
 
 const config: LinterConfig = {
 	"extends": ["c74-base"],
-	parser: "babel-eslint"
+	parser: "@babel/eslint-parser"
 };
 
 export = config;
