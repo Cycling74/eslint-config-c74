@@ -6,7 +6,7 @@ const { workspacePackages, REPO_ROOT } = require("./helpers");
 
 const version = process.env.npm_package_version;
 
-for (const [name, path] of Object.entries(workspacePackages)) {
+for (const path of Object.values(workspacePackages)) {
 
 	const pkgInfoPath = join(REPO_ROOT, path, "package.json");
 	const pkgInfo = JSON.parse(readFileSync(pkgInfoPath));
